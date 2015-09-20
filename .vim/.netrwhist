@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/usr/share/zsh/site-functions'
+let g:netrw_dirhist_2='/usr/local/share/npm'
+let g:netrw_dirhist_3='/Users/minami/.go/src/github.com/wantedly/wantedly/vendor/assets/javascripts/nvd3'
+let g:netrw_dirhist_4='/Users/minami/.zsh'
+let g:netrw_dirhist_5='/Users/minami/.go/src/github.com/wantedly/wantedly-cookbook/.kitchen'
+let g:netrw_dirhist_6='/Users/minami/.go/src/github.com/wantedly/news-rails/app/controllers'
+let g:netrw_dirhist_7='/Users/minami/.go/src/github.com/wantedly/wantedly/lib'
+let g:netrw_dirhist_8='/Users/minami/.go/src/bitbucket.org/ged/ruby-pg/.hg'
+let g:netrw_dirhist_9='/Users/minami/.berkshelf/default/vagrant/berkshelf-20140819-75733-1kkfrdu-default/git'
