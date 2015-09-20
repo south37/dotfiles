@@ -1,0 +1,37 @@
+[core]
+  editor = vim
+	excludesfile = /Users/minami/.git/.gitignore
+[user]
+	name = Nao Minami
+	email = south37777@gmail.com
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+  con = config --global -l
+  s = status
+  co = checkout
+  b = branch
+  cm = commit -m
+  a = add -u
+  amend = commit --amend -C HEAD
+  logg = log --stat --decorate=short --pretty=format:'%C(yellow)%h %Cgreen%cr %Cblue%cn%Cred%d %Creset%s %C(cyan)%b'
+  mergelog = log --merges --pretty=format:'%C(yellow)%h %Cgreen%ci %Cblue%cn%Cred%d %Creset%s %C(cyan)%b'
+  history = log --graph --date=short --decorate=short --pretty=format:'%C(yellow)%h %Cgreen%cd %Cblue%cn%Cred%d %Creset%s'
+  unmerged = !git --no-pager diff --name-only --diff-filter=U
+  sync = !git checkout master && git pull origin master && git fetch -p origin && git branch -d $(git branch --merged | grep -v master | grep -v '*')
+	ag = "!git ls-files | xargs ag --pager=\"less -F -R\" --nogroup --color-match=0\\;31 --color-path=0\\;0 --no-numbers"
+[push]
+  default = current
+[credential]
+  helper = osxkeychain
+[ghq]
+  root = ~/.go/src
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
