@@ -343,3 +343,7 @@ alias dstat-disk='dstat -Tcldr'
 ## docker-machine 起動
 # docker-machine start default
 # docker-machine env default
+
+# .vimrc を読まずにvimを起動
+# 参考: http://opamp.hatenablog.jp/entry/20120205/1328464514
+alias vi='vim -u NONE --noplugin init.redis.rb'
