@@ -1,3 +1,5 @@
+source ~/dotfiles/.shrc
+
 # PATH等の設定
 # http://yonchu.hatenablog.com/entry/20120415/1334506855
 # 重複パスを登録しない
@@ -153,10 +155,6 @@ PROMPT='%F{blue}[%n@%m]%f %~ `branch-status-check`'$'\n$ ' # gitのbranch名を�
 # setopt transient_rprompt
 setopt prompt_subst #表示毎にPROMPTで設定されている文字列を評価する
 
-# $grep
-export GREP_COLOR='1;37;41'
-alias grep='grep -E --color=auto'
-
 # ctagsをhomebrewで入れた物を使用
 alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
 
@@ -178,10 +176,8 @@ alias vzsh='vim ~/.zshrc'
 alias vvim='vim ~/.vimrc'
 
 # r7kamuraさんのパクリalias
-pvim() { peco | xargs sh -c 'vim "$0" < /dev/tty' }
 pdo() { peco | while read LINE; do $@ $LINE; done }
 alias c='find ./ -type d | pdo cd'
-alias p='git ls-files | pvim'
 alias e='ghq list -p | pdo cd'
 
 # cd系
@@ -193,9 +189,6 @@ alias cdd='cd ~/Dropbox/docs'
 alias cdw='cd ~/Dropbox/master-thesis'
 alias cdi='cd ~/Documents/programs/intern/wantedly/projects/app-ios'
 
-# bundle exec
-alias be='bundle exec'
-
 # coffee script
 alias cof='coffee'
 
@@ -206,23 +199,6 @@ alias erl='/usr/local/opt/erlang/lib/erlang/bin/erl*'
 
 # hubをgitのaliasに
 eval "$(hub alias -s)"
-
-# git関連
-alias ga='git add'
-alias gd='git diff'
-alias gdh='git diff HEAD'
-alias gdhh='git diff HEAD\^'
-alias gcm='git commit -m'
-alias gam='git commit -am'
-alias gs='git status'
-alias gsn='git status -s | cut -c4-'
-alias gl='git logg'
-alias gll='git log -p'
-alias glg="git log --graph --pretty=format:'%d %an: %s %ar %h'"
-alias gco='git checkout'
-alias gb='git branch'
-alias gsub='git submodule'
-alias grm='git rm --cached'
 
 # peco でgitlogからハッシュを取る
 alias glh="glg | peco | awk -F ' ' '{ print $NF }'"
@@ -333,17 +309,7 @@ source '/Users/minami/.gcp/google-cloud-sdk/path.zsh.inc'
 # The next line enables shell command completion for gcloud.
 source '/Users/minami/.gcp/google-cloud-sdk/completion.zsh.inc'
 
-# dstat 関連
-alias dstat-full='dstat -Tclmdrn'
-alias dstat-mem='dstat -Tclm'
-alias dstat-cpu='dstat -Tclr'
-alias dstat-net='dstat -Tclnd'
-alias dstat-disk='dstat -Tcldr'
-
 ## docker-machine 起動
 # docker-machine start default
 # docker-machine env default
 
-# .vimrc を読まずにvimを起動
-# 参考: http://opamp.hatenablog.jp/entry/20120205/1328464514
-alias vi='vim -u NONE --noplugin init.redis.rb'

@@ -1,0 +1,38 @@
+# $grep
+export GREP_COLOR='1;37;41'
+alias grep='grep -E --color=auto'
+
+# r7kamuraさんのパクリalias
+pvim() { peco | xargs sh -c 'vim "$0" < /dev/tty' }
+alias p='git ls-files | pvim'
+
+# bundle exec
+alias be='bundle exec'
+
+# git関連
+alias ga='git add'
+alias gd='git diff'
+alias gdh='git diff HEAD'
+alias gdhh='git diff HEAD\^'
+alias gcm='git commit -m'
+alias gam='git commit -am'
+alias gs='git status'
+alias gsn='git status -s | cut -c4-'
+alias gl='git logg'
+alias gll='git log -p'
+alias glg="git log --graph --pretty=format:'%d %an: %s %ar %h'"
+alias gco='git checkout'
+alias gb='git branch'
+alias gsub='git submodule'
+alias grm='git rm --cached'
+
+# dstat 関連
+alias dstat-full='dstat -Tclmdrn'
+alias dstat-mem='dstat -Tclm'
+alias dstat-cpu='dstat -Tclr'
+alias dstat-net='dstat -Tclnd'
+alias dstat-disk='dstat -Tcldr'
+
+# .vimrc を読まずにvimを起動
+# 参考: http://opamp.hatenablog.jp/entry/20120205/1328464514
+alias vi='vim -u NONE --noplugin init.redis.rb'
