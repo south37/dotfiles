@@ -313,3 +313,4 @@ source '/Users/minami/.gcp/google-cloud-sdk/completion.zsh.inc'
 # docker-machine start default
 # docker-machine env default
 
+eval "$(direnv hook zsh)"
