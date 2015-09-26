@@ -176,6 +176,8 @@ alias vzsh='vim ~/.zshrc'
 alias vvim='vim ~/.vimrc'
 
 # r7kamuraさんのパクリalias
+pvim() { peco | xargs sh -c 'vim "$0" < /dev/tty' }
+alias p='git ls-files | pvim'
 pdo() { peco | while read LINE; do $@ $LINE; done }
 alias c='find ./ -type d | pdo cd'
 alias e='ghq list -p | pdo cd'

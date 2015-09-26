@@ -2,10 +2,6 @@
 export GREP_COLOR='1;37;41'
 alias grep='grep -E --color=auto'
 
-# r7kamuraさんのパクリalias
-pvim() { peco | xargs sh -c 'vim "$0" < /dev/tty' }
-alias p='git ls-files | pvim'
-
 # bundle exec
 alias be='bundle exec'
 
