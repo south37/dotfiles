@@ -200,6 +200,10 @@ NeoBundle 'mxw/vim-jsx'
 " rust
 NeoBundle 'rust-lang/rust.vim'
 
+" haskell
+NeoBundle 'eagletmt/neco-ghc'
+NeoBundle 'dag/vim2hs'
+
 " vim-rubyを導入
 NeoBundle 'vim-ruby/vim-ruby'
 
