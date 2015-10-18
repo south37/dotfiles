@@ -197,6 +197,9 @@ NeoBundle 'vim-jp/cpp-vim'
 " react
 NeoBundle 'mxw/vim-jsx'
 
+" rust
+NeoBundle 'rust-lang/rust.vim'
+
 " vim-rubyを導入
 NeoBundle 'vim-ruby/vim-ruby'
 
@@ -688,6 +691,9 @@ endfunction
 " Agでの検索を簡単にする
 nnoremap siw yiw :At <C-r>0<CR> /<C-r>0<CR>
 nnoremap siW yiW :At <C-r>0<CR> /<C-r>0<CR>
+
+" Agでの検索結果のハイライトはさりげなく消す
+nnoremap <Esc><Esc><Esc> :HierStop<CR>
 
 " quickrun関連の設定
 " 参考: http://d.hatena.ne.jp/osyo-manga/20130311/1363012363
