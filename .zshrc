@@ -1,5 +1,16 @@
 source ~/dotfiles/.shrc
 
+# ^ を escape なしで打てるようにする(git diff HEAD^ とかしたい)
+# Please see http://stackoverflow.com/questions/6091827/git-show-head-doesnt-seem-to-be-working-is-this-normal
+setopt NO_EXTENDED_GLOB
+
+# defaultのeditorをvimに
+export EDITOR=vim
+
+# 設定しないと child process で keybind が vim になる( EDITOR=vim にしてるので )
+# Please see http://web-salad.hateblo.jp/entry/2014/12/07/090000
+bindkey -e
+
 # PATH等の設定
 # http://yonchu.hatenablog.com/entry/20120415/1334506855
 # 重複パスを登録しない
@@ -245,9 +256,6 @@ function _my_sheets {
 
   return 1;
 }
-
-# defaultのeditorをvimに
-export EDITOR=vim
 
 # tabを見易く
 function chpwd() { ls; echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
