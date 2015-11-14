@@ -204,6 +204,9 @@ NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'dag/vim2hs'
 
+" elixir
+NeoBundle 'elixir-lang/vim-elixir'
+
 " vim-rubyを導入
 NeoBundle 'vim-ruby/vim-ruby'
 
