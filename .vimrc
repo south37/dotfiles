@@ -204,6 +204,10 @@ NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'dag/vim2hs'
 
+" TypeScript
+NeoBundle 'https://github.com/leafgarland/typescript-vim.git'
+NeoBundle 'https://github.com/clausreinke/typescript-tools.vim.git'
+
 " elixir
 NeoBundle 'elixir-lang/vim-elixir'
 
