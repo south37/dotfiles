@@ -142,7 +142,7 @@ function get-branch-name {
 }
 function get-branch-status {
     local res color
-    output=`git status --short 2> /dev/null`
+    output=`git status -uno --short 2> /dev/null`
     if [ -z "$output" ]; then
         res=':' # status Clean
         color='%{'${fg[green]}'%}'
@@ -201,6 +201,9 @@ alias cdj='cd app/assets/javascripts'
 alias cdd='cd ~/Dropbox/docs'
 alias cdw='cd ~/Dropbox/master-thesis'
 alias cdi='cd ~/Documents/programs/intern/wantedly/projects/app-ios'
+
+# wantedly sap 用
+alias sap='envchain aws sap'
 
 # coffee script
 alias cof='coffee'
@@ -324,3 +327,14 @@ source '/Users/minami/.gcp/google-cloud-sdk/completion.zsh.inc'
 # docker-machine env default
 
 eval "$(direnv hook zsh)"
+
+export ANDROID_HOME='/Users/minami/Library/Android/sdk/'
+
+# Add /usr/local/lib to include path for gcc
+# https://skatsuta.github.io/2015/10/03/fail-gem-install/
+export LIBRARY_PATH=/usr/local/lib:$LIBRARY_PATH
+
+# Add /depot_tools to PATh
+# https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up
+export PATH=$PATH:$HOME/.go/src/chromium.googlesource.com/chromium/tools/depot_tools
+
