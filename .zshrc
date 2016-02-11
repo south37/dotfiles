@@ -294,7 +294,7 @@ function find-pr() {
 
 function find-pr-open() {
   local pr="$(find-pr $1 $2 | awk '{print substr($5, 2)}')"
-  local repo="$(git config --get remote.origin.url | sed 's/git@github.com://' | sed 's/\.git$//')"
+  local repo="$(git config --get remote.origin.url | sed 's/ssh:\/\/git@github\.com\///' | sed 's/\.git$//')"
   open "https://github.com/${repo}/pull/${pr}"
 }
 
