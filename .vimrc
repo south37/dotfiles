@@ -5,7 +5,7 @@ set hlsearch
 nnoremap <Esc><Esc>  :<C-u>nohlsearch<CR>
 
 set expandtab
-set tabstop=2
+set tabstop=4
 set shiftwidth=2
 set softtabstop=0
 
@@ -245,6 +245,10 @@ NeoBundle 'vim-scripts/copypath.vim'
 
 " QuickFixをハイライト
 NeoBundle 'jceb/vim-hier'
+
+" Git コマンドを使う
+" 参考: http://yuku-tech.hatenablog.com/entry/20110427/1303868482
+NeoBundle 'tpope/vim-fugitive'
 
 " NeoBundle設定終了
 " 参考: https://github.com/Shougo/neobundle.vim
