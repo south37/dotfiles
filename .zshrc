@@ -338,3 +338,6 @@ export LIBRARY_PATH=/usr/local/lib:$LIBRARY_PATH
 # https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up
 export PATH=$PATH:$HOME/.go/src/chromium.googlesource.com/chromium/tools/depot_tools
 
+# Use latest swift for trying Kitura
+# https://github.com/IBM-Swift/Kitura
+export PATH=$HOME/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
