@@ -279,12 +279,11 @@ alias cap="bundle exec cap"
 
 # goの設定。ghqを使う為でもある。
 # http://qiita.com/methane/items/4905f40e4772afec3e60
-export GOPATH=$HOME/.go
-export GOROOT=/usr/local/opt/go/libexec
-export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
-# goコマンドをTab補完する為に読み込む。
-# 参考?: http://d.hatena.ne.jp/torazuka/20140714/oimachigo
-source /usr/local/share/zsh/site-functions/go
+if [ -x "`which go`" ]; then
+  export GOPATH=$HOME/.go
+  export GOROOT=/usr/local/opt/go/libexec/
+  export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
+fi
 
 # 特定のcommitが含まれる pull req を探す
 function find-pr() {
