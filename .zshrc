@@ -79,6 +79,16 @@ alias repo='ghq get'
 # 3秒以上かかった処理は詳細表示
 REPORTTIME=3
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /Users/minami/Documents/google-cloud-sdk/path.zsh.inc ]; then
+  source '/Users/minami/Documents/google-cloud-sdk/path.zsh.inc'
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f /Users/minami/Documents/google-cloud-sdk/completion.zsh.inc ]; then
+  source '/Users/minami/Documents/google-cloud-sdk/completion.zsh.inc'
+fi
+
 # for zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 # zshの補完
@@ -208,6 +218,14 @@ alias sap='envchain aws sap'
 # coffee script
 alias cof='coffee'
 
+# download resource
+all_download() {
+  for url in $@
+  do
+  curl -O $url
+  done
+}
+
 set -o noclobber
 
 # erlangの起動
@@ -270,7 +288,7 @@ alias findall="find ./ -name $1"
 # 参考: http://pg-sugarless.hatenablog.jp/entry/20130409/1365510182
 # 参考2: http://stackoverflow.com/questions/4247068/sed-command-failing-on-mac-but-works-on-linux
 function grepall() { git ls-files | xargs grep -l $1 }
-function sedall()  { grepall $1 | xargs sed -i '' s/$1/$2/g }
+function sedall()  { ag -l $1 $3 | xargs sed -i '' s/$1/$2/g }
 # rename
 function renameall() { git ls-files | grep $1 | while read LINE; do mv $LINE `echo $LINE | sed s/$1/$2/g`; done }
 
@@ -315,12 +333,6 @@ alias fuck='eval $(thefuck $(fc -ln -1))'
 alias ruby-tag='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" --sort=yes -R .'
 
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/minami/.gcp/google-cloud-sdk/path.zsh.inc'
-
-# The next line enables shell command completion for gcloud.
-source '/Users/minami/.gcp/google-cloud-sdk/completion.zsh.inc'
-
 ## docker-machine 起動
 # docker-machine start default
 # docker-machine env default
@@ -340,3 +352,6 @@ export PATH=$PATH:$HOME/.go/src/chromium.googlesource.com/chromium/tools/depot_t
 # Use latest swift for trying Kitura
 # https://github.com/IBM-Swift/Kitura
 export PATH=$HOME/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
+
+# added by travis gem
+[ -f /Users/minami/.travis/travis.sh ] && source /Users/minami/.travis/travis.sh
