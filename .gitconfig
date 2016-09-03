@@ -1,6 +1,6 @@
 [core]
   editor = vim
-	excludesfile = /Users/minami/.git/.gitignore
+	excludesfile = /Users/minami/.gitignore
 	preloadindex = true
 [user]
 	name = Nao Minami

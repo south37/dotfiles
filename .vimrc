@@ -5,7 +5,7 @@ set hlsearch
 nnoremap <Esc><Esc>  :<C-u>nohlsearch<CR>
 
 set expandtab
-set tabstop=4
+set tabstop=8
 set shiftwidth=2
 set softtabstop=0
 
@@ -236,6 +236,9 @@ NeoBundle 'AndrewRadev/switch.vim'
 " vim-rspec.vimを導入
 " 参考: http://kazuph.hateblo.jp/entry/2012/11/28/233413
 NeoBundle 'skwp/vim-rspec'
+
+" API Blueprint
+NeoBundle 'kylef/apiblueprint.vim'
 
 " TypeScript環境
 NeoBundle 'leafgarland/typescript-vim'
