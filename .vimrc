@@ -257,6 +257,11 @@ NeoBundle 'tpope/vim-fugitive'
 " 参考: https://github.com/Shougo/neobundle.vim
 call neobundle#end()
 
+" Go のvim用便利plugin
+" :Fmt とか :Import とか
+" 参考: http://qiita.com/methane/items/4905f40e4772afec3e60
+NeoBundle 'fait/vim-go'
+
 " Required:
 filetype plugin indent on
 
@@ -369,15 +374,10 @@ nnoremap <F6> :<C-u>source $MYVIMRC<CR>
 
 " Go用の設定。
 " http://qiita.com/methane/items/4905f40e4772afec3e60
-" :Fmt などで gofmt の代わりに goimports を使う
-let g:gofmt_command = 'goimports'
 " Go に付属の plugin と gocode を有効にする
 set rtp^=${GOROOT}/misc/vim
 set rtp^=${GOPATH}/src/github.com/nsf/gocode/vim
-" 保存時に :Fmt する
-au BufWritePre *.go Fmt
 au BufNewFile,BufRead *.go set sw=4 noexpandtab ts=4
-au FileType go compiler go
 
 " Neocomplcache用設定
 " https://github.com/Shougo/neocomplcache.vim
