@@ -41,6 +41,8 @@ nnoremap k gk
 
 " Gemfileをruby modeで開く
 au BufNewFile,BufRead Gemfile setf ruby
+" jbuilderをruby modeで開く
+au BufNewFile,BufRead jbuilder setf ruby
 
 " rbファイルを開いた時は、デフォルトでマジックコメント追加
 "autocmd BufNewFile *.rb 0r ~/.vim/templates/rb.tpl
@@ -182,6 +184,9 @@ NeoBundle 'JavaScript-syntax'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'pangloss/vim-javascript'
 
+" template in js and coffee
+NeoBundle 'Quramy/vim-js-pretty-template'
+
 " json
 NeoBundle 'leshill/vim-json'
 
@@ -270,6 +275,11 @@ filetype plugin indent on
 NeoBundleCheck
 
 autocmd BufNewFile,BufRead *.twig set syntax=htmldjango
+
+" js, coffee のtemplateをhtmlとしてhighlight
+" https://github.com/Quramy/vim-js-pretty-template
+autocmd FileType javascript JsPreTmpl html
+autocmd FileType coffee JsPreTmpl html
 
 "バッファ全体にxmpfilterを実行
 nmap <silent> <C-x><C-p> mzggVG!xmpfilter -a<cr>'z
