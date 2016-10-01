@@ -258,14 +258,14 @@ NeoBundle 'jceb/vim-hier'
 " 参考: http://yuku-tech.hatenablog.com/entry/20110427/1303868482
 NeoBundle 'tpope/vim-fugitive'
 
-" NeoBundle設定終了
-" 参考: https://github.com/Shougo/neobundle.vim
-call neobundle#end()
-
 " Go のvim用便利plugin
 " :Fmt とか :Import とか
 " 参考: http://qiita.com/methane/items/4905f40e4772afec3e60
 NeoBundle 'fait/vim-go'
+
+" NeoBundle設定終了
+" 参考: https://github.com/Shougo/neobundle.vim
+call neobundle#end()
 
 " Required:
 filetype plugin indent on
