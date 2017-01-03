@@ -355,3 +355,15 @@ export PATH=$HOME/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:
 
 # added by travis gem
 [ -f /Users/minami/.travis/travis.sh ] && source /Users/minami/.travis/travis.sh
+
+# Set for cuda
+# https://www.tensorflow.org/versions/r0.11/get_started/os_setup.html#optional-setup-gpu-for-mac
+export CUDA_HOME=/usr/local/cuda
+export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
+export PATH="$CUDA_HOME/bin:$PATH"
+
+# swift
+export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:"${PATH}"
+
+# Rust
+export PATH=$HOME/.cargo/bin:"${PATH}"
