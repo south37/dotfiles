@@ -5,7 +5,7 @@ set hlsearch
 nnoremap <Esc><Esc>  :<C-u>nohlsearch<CR>
 
 set expandtab
-set tabstop=8
+set tabstop=4
 set shiftwidth=2
 set softtabstop=0
 
@@ -262,6 +262,9 @@ NeoBundle 'tpope/vim-fugitive'
 " :Fmt とか :Import とか
 " 参考: http://qiita.com/methane/items/4905f40e4772afec3e60
 NeoBundle 'fait/vim-go'
+
+" Swift
+NeoBundle 'toyamarinyon/vim-swift'
 
 " NeoBundle設定終了
 " 参考: https://github.com/Shougo/neobundle.vim
