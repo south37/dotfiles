@@ -213,7 +213,8 @@ alias cdw='cd ~/Dropbox/master-thesis'
 alias cdi='cd ~/Documents/programs/intern/wantedly/projects/app-ios'
 
 # wantedly sap 用
-alias sap='envchain aws sap'
+alias kube='envchain aws kube'
+alias valec='envchain aws valec'
 
 # coffee script
 alias cof='coffee'
@@ -288,7 +289,7 @@ alias findall="find ./ -name $1"
 # 参考: http://pg-sugarless.hatenablog.jp/entry/20130409/1365510182
 # 参考2: http://stackoverflow.com/questions/4247068/sed-command-failing-on-mac-but-works-on-linux
 function grepall() { git ls-files | xargs grep -l $1 }
-function sedall()  { ag -l $1 $3 | xargs sed -i '' s/$1/$2/g }
+function sedall()  { ag -l $1 $3 | xargs sed -Ei '' s/$1/$2/g }
 # rename
 function renameall() { git ls-files | grep $1 | while read LINE; do mv $LINE `echo $LINE | sed s/$1/$2/g`; done }
 
@@ -297,11 +298,9 @@ alias cap="bundle exec cap"
 
 # goの設定。ghqを使う為でもある。
 # http://qiita.com/methane/items/4905f40e4772afec3e60
-if [ -x "`which go`" ]; then
-  export GOPATH=$HOME/.go
-  export GOROOT=/usr/local/opt/go/libexec/
-  export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
-fi
+export GOPATH=$HOME/.go
+export GOROOT=/usr/local/go
+export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
 # 特定のcommitが含まれる pull req を探す
 function find-pr() {

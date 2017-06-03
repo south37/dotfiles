@@ -5,7 +5,7 @@ set hlsearch
 nnoremap <Esc><Esc>  :<C-u>nohlsearch<CR>
 
 set expandtab
-set tabstop=4
+set tabstop=8
 set shiftwidth=2
 set softtabstop=0
 
@@ -198,6 +198,7 @@ NeoBundle 'tpope/vim-haml'
 
 " c++
 NeoBundle 'vim-jp/cpp-vim'
+NeoBundle 'octol/vim-cpp-enhanced-highlight'
 
 " react
 NeoBundle 'mxw/vim-jsx'
@@ -208,10 +209,6 @@ NeoBundle 'rust-lang/rust.vim'
 " haskell
 NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'dag/vim2hs'
-
-" TypeScript
-NeoBundle 'https://github.com/leafgarland/typescript-vim.git'
-NeoBundle 'https://github.com/clausreinke/typescript-tools.vim.git'
 
 " elixir
 NeoBundle 'elixir-lang/vim-elixir'
