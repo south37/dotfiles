@@ -53,6 +53,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 " source ~/.vimrcをさくっと出来る様に
 command! Svim :source ~/.vimrc
 
+" tag jump with new tab
+nnoremap <C-\> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
+
 " 以下、NeoBundle適用
 " 参考: https://github.com/Shougo/neobundle.vim
 if !1 | finish | endif
@@ -75,6 +78,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Copy File Path/Name
 NeoBundle 'vim-scripts/copypath.vim'
+command! CP :CopyPath
 
 " quickrun
 NeoBundle 'thinca/vim-quickrun'
@@ -141,6 +145,9 @@ NeoBundle 'Shougo/vimproc', {
 " vimshell
 NeoBundle 'Shougo/vimshell'
 
+" formatting by prettier
+NeoBundle 'sbdchd/neoformat'
+
 " Neocomplcache
 NeoBundle 'Shougo/neocomplcache'
 
@@ -197,7 +204,6 @@ NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'tpope/vim-haml'
 
 " c++
-NeoBundle 'vim-jp/cpp-vim'
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
 
 " react
@@ -262,6 +268,9 @@ NeoBundle 'fait/vim-go'
 
 " Swift
 NeoBundle 'toyamarinyon/vim-swift'
+
+" llvm
+NeoBundle 'Superbil/llvm.vim'
 
 " NeoBundle設定終了
 " 参考: https://github.com/Shougo/neobundle.vim
@@ -765,4 +774,18 @@ nmap cc <Plug>(ToggleColorColumn)
 " jsx
 " https://github.com/mxw/vim-jsx
 let g:jsx_ext_required = 0
+" http://qiita.com/yamagen0915/items/bae0b64e7e18724521d1
+au BufRead,BufNewFile *.jsx set filetype=javascript.jsx
 
+" cpp
+au BufRead,BufNewFile *.cpp set filetype=cpp
+
+" Neoformat using prettier
+autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --print-width\ 120\ --trailing-comma\ es5\ --parser\ babylon
+let g:neoformat_try_formatprg = 1
+autocmd BufWritePre *.js Neoformat
+autocmd BufWritePre *.jsx Neoformat
+
+" llvm
+" https://github.com/Superbil/llvm.vim
+au BufRead,BufNewFile *.ll set filetype=llvm

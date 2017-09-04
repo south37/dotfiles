@@ -61,9 +61,6 @@ export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=384M"
 # PostgresをPATHに追加
 export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 
-# nodebrew用
-export PATH="$HOME/.nodebrew/current/bin:$PATH"
-
 # pkg-config用PATH
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/usr/lib/pkgconfig:/usr/X11/lib/pkgconfig"
 
@@ -73,8 +70,8 @@ export PYTHONPATH="/usr/local/Cellar/opencv/2.4.5/lib/python2.7/site-packages:$P
 # rubyでrsruby用
 export R_HOME="/usr/local/bin/R"
 
-# ghq getのalias
-alias repo='ghq get'
+# nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # 3秒以上かかった処理は詳細表示
 REPORTTIME=3
@@ -219,6 +216,9 @@ alias valec='envchain aws valec'
 # coffee script
 alias cof='coffee'
 
+# Compile by c++11
+alias g++11='g++ -std=c++11'
+
 # download resource
 all_download() {
   for url in $@
@@ -310,8 +310,8 @@ function find-pr() {
 
 function find-pr-open() {
   local pr="$(find-pr $1 $2 | awk '{print substr($5, 2)}')"
-  local repo="$(git config --get remote.origin.url | sed 's/ssh:\/\/git@github\.com\///' | sed 's/\.git$//')"
-  open "https://github.com/${repo}/pull/${pr}"
+  local r="$(git config --get remote.origin.url | sed 's/ssh:\/\/git@github\.com\///' | sed 's/\.git$//')"
+  open "https://github.com/${r}/pull/${pr}"
 }
 
 alias altool='/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/altool'
@@ -365,4 +365,29 @@ export PATH="$CUDA_HOME/bin:$PATH"
 export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:"${PATH}"
 
 # Rust
-export PATH=$HOME/.cargo/bin:"${PATH}"
+export PATH=$"HOME/.cargo/bin:$PATH"
+
+# Anaconda
+# http://qiita.com/y__sama/items/5b62d31cb7e6ed50f02c
+export PATH="$HOME/anaconda/bin:$PATH"
+
+# llvm
+# To use the bundled libc++ please add the following LDFLAGS:
+#   LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
+#
+# This formula is keg-only, which means it was not symlinked into /usr/local,
+# because macOS already provides this software and installing another version in
+# parallel can cause all kinds of trouble.
+#
+# If you need to have this software first in your PATH run:
+#   echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> ~/.zshrc
+#
+# For compilers to find this software you may need to set:
+#     LDFLAGS:  -L/usr/local/opt/llvm/lib
+#     CPPFLAGS: -I/usr/local/opt/llvm/include
+#
+# If you need Python to find bindings for this keg-only formula, run:
+#   echo /usr/local/opt/llvm/lib/python2.7/site-packages >> /usr/local/lib/python2.7/site-packages/llvm.pth
+#   mkdir -p /Users/minami/.local/lib/python3.6/site-packages
+#   echo 'import site; site.addsitedir("/usr/local/lib/python2.7/site-packages")' >> /Users/minami/.local/lib/python3.6/site-packages/homebrew.pth
+export PATH="/usr/local/opt/llvm/bin:$PATH"

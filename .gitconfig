@@ -38,3 +38,6 @@
 	trustExitCode = true
 [http]
 	cookiefile = /Users/minami/.gitcookies
+[github]
+	user = south37
+	privatekey = /Users/minami/.ssh/id_rsa
