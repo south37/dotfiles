@@ -193,6 +193,9 @@ alias soz='source ~/.zshrc'
 alias vzsh='vim ~/.zshrc'
 alias vvim='vim ~/.vimrc'
 
+# prettier
+alias prettier_exec='prettier --write --print-width 120 --use-tabs false --semi true --single-quote false --trailing-comma es5 bracket-spacing true jsx-bracket-same-line false --parser babylon'
+
 # r7kamuraさんのパクリalias
 pvim() { peco | xargs sh -c 'vim "$0" < /dev/tty' }
 alias p='git ls-files | pvim'

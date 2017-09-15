@@ -124,14 +124,6 @@ if executable('ag')
   let g:ctrlp_user_command='ag %s -i --nocolor --nogroup -g ""'
 endif
 
-" ctrlp-rails設定
-" 13/03/07設定
-" 参考: https://github.com/iurifq/ctrlp-rails.vim
-NeoBundle 'iurifq/ctrlp-rails.vim', {'depends' : 'kien/ctrlp.vim' }
-nnoremap ,m :<C-u>CtrlPModels<CR>
-nnoremap ,c :<C-u>CtrlPControllers<CR>
-nnoremap ,v :<C-u>CtrlPViews<CR>
-
 " vimproc(vimshellに必要)
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -145,19 +137,12 @@ NeoBundle 'Shougo/vimproc', {
 " vimshell
 NeoBundle 'Shougo/vimshell'
 
-" formatting by prettier
-NeoBundle 'sbdchd/neoformat'
-
 " Neocomplcache
 NeoBundle 'Shougo/neocomplcache'
 
 " neosnippet
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-
-" vim-rails https://github.com/tpope/vim-rails
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-bundler'
 
 " vim-endwise
 NeoBundle 'tpope/vim-endwise'
@@ -187,7 +172,6 @@ NeoBundle 'surround.vim'
 NeoBundle 'mattn/emmet-vim'
 
 " js
-NeoBundle 'JavaScript-syntax'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'pangloss/vim-javascript'
 
@@ -205,9 +189,6 @@ NeoBundle 'tpope/vim-haml'
 
 " c++
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
-
-" react
-NeoBundle 'mxw/vim-jsx'
 
 " rust
 NeoBundle 'rust-lang/rust.vim'
@@ -661,63 +642,6 @@ augroup SwitchSetting
   autocmd Filetype * if !empty(split(&ft, '\.')) | call <SID>define_switch_mappings() | endif
 augroup END
 
-" vim-railsの設定
-" 参考: https://gist.github.com/alpaca-tc/4521441
-"------------------------------------
-" vim-rails
-"------------------------------------
-""{{{
-"有効化
-let g:rails_default_file='config/database.yml'
-let g:rails_level = 4
-let g:rails_mappings=1
-let g:rails_modelines=0
-" let g:rails_some_option = 1
-" let g:rails_statusline = 1
-" let g:rails_subversion=0
-" let g:rails_syntax = 1
-" let g:rails_url='http://localhost:3000'
-" let g:rails_ctags_arguments='--languages=-javascript'
-" let g:rails_ctags_arguments = ''
-function! SetUpRailsSetting()
-  nnoremap <buffer><Space>r :R<CR>
-  nnoremap <buffer><Space>a :A<CR>
-  nnoremap <buffer><Space>m :Rmodel<Space>
-  nnoremap <buffer><Space>c :Rcontroller<Space>
-  nnoremap <buffer><Space>v :Rview<Space>
-  nnoremap <buffer><Space>p :Rpreview<CR>
-endfunction
-
-aug MyAutoCmd
-  au User Rails call SetUpRailsSetting()
-aug END
-
-aug RailsDictSetting
-  au!
-aug END
-"}}}
-
-" 別のvim-rspecを入れるのでコメントアウト
-" " vim rspec
-" " 参考: https://github.com/thoughtbot/vim-rspec
-" " RSpec.vim mappings
-" nnoremap rspec :call RunCurrentSpecFile()<CR>
-" " map <Leader>s :call RunNearestSpec()<CR>
-" " map <Leader>l :call RunLastSpec()<CR>
-" " map <Leader>a :call RunAllSpecs()<CR>
-" " bundle exec rspec を実行する
-" " 参考: https://github.com/thoughtbot/vim-rspec/issues/40
-" " let g:rspec_command = "!bundle exec rspec -f d -c {spec}"
-
-" " 別のvim-rspecを導入
-" " 参考: http://kazuph.hateblo.jp/entry/2012/11/28/233413
-" nnoremap <silent> ,rs :RunSpec<CR>
-" nnoremap <silent> ,rl :RunSpecLine<CR>
-
-" copypath
-" 参考: http://nanasi.jp/articles/vim/copypath_vim.html
-command! PathCopy :CopyPath
-
 " tabを開いてからAg
 command! -nargs=* At call s:At(<f-args>)
 function! s:At(...)
@@ -771,20 +695,11 @@ noremap <Plug>(ToggleColorColumn)
 " ノーマルモードの 'cc' に割り当てる
 nmap cc <Plug>(ToggleColorColumn)
 
-" jsx
-" https://github.com/mxw/vim-jsx
-let g:jsx_ext_required = 0
-" http://qiita.com/yamagen0915/items/bae0b64e7e18724521d1
-au BufRead,BufNewFile *.jsx set filetype=javascript.jsx
-
 " cpp
 au BufRead,BufNewFile *.cpp set filetype=cpp
 
-" Neoformat using prettier
-autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --print-width\ 120\ --trailing-comma\ es5\ --parser\ babylon
-let g:neoformat_try_formatprg = 1
-autocmd BufWritePre *.js Neoformat
-autocmd BufWritePre *.jsx Neoformat
+"jsx
+au BufRead,BufNewFile *.jsx set filetype=javascript
 
 " llvm
 " https://github.com/Superbil/llvm.vim
