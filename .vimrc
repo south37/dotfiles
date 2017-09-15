@@ -251,7 +251,7 @@ NeoBundle 'fait/vim-go'
 NeoBundle 'toyamarinyon/vim-swift'
 
 " llvm
-NeoBundle 'Superbil/llvm.vim'
+NeoBundle 'rhysd/vim-llvm'
 
 " NeoBundle設定終了
 " 参考: https://github.com/Shougo/neobundle.vim
