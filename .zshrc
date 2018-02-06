@@ -238,7 +238,7 @@ alias vlm='vim `last_migration`'
 # alias ag='ag --pager="less -R"'
 
 # gccでboost読み込み
-CPLUS_INCLUDE_PATH='/usr/local/Cellar/boost/1.55.0/lib/'
+export CPLUS_INCLUDE_PATH="/usr/local/Cellar/boost/1.55.0/lib/:$CPLUS_INCLUDE_PATH"
 
 # rbenv
 # TODO(south37) Remove after confirmation
