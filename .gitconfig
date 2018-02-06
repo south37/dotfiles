@@ -23,7 +23,7 @@
   history = log --graph --date=short --decorate=short --pretty=format:'%C(yellow)%h %Cgreen%cd %Cblue%cn%Cred%d %Creset%s'
   unmerged = !git --no-pager diff --name-only --diff-filter=U
   sync = !git checkout master && git pull origin master && git fetch -p origin && git branch -d $(git branch --merged | grep -v master | grep -v '*')
-	ag = "!git ls-files | xargs ag --pager=\"less -F -R\" --nogroup --color-match=0\\;31 --color-path=0\\;0 --no-numbers"
+  ag = "!git ls-files | xargs ag --pager=\"less -F -R\" --nogroup --color-match=0\\;31 --color-path=0\\;0 --no-numbers"
 [push]
   default = current
 [credential]

@@ -174,6 +174,7 @@ NeoBundle 'mattn/emmet-vim'
 " js
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'prettier/vim-prettier'
 
 " template in js and coffee
 NeoBundle 'Quramy/vim-js-pretty-template'
@@ -270,6 +271,21 @@ autocmd BufNewFile,BufRead *.twig set syntax=htmldjango
 " https://github.com/Quramy/vim-js-pretty-template
 autocmd FileType javascript JsPreTmpl html
 autocmd FileType coffee JsPreTmpl html
+
+" js prettier
+let g:prettier#autoformat = 0
+let g:prettier#exec_cmd_path = "/usr/local/bin/prettier"
+" let g:prettier#autoformat = 0
+" autocmd BufWritePre *.js,*.jsx Prettier
+" prettier rules
+let g:prettier#config#print_width = 120
+let g:prettier#config#use_tabs = 'false'
+let g:prettier#config#semi = 'true'
+let g:prettier#config#single_quote = 'false'
+let g:prettier#config#trailing_comma = 'es5'
+let g:prettier#config#bracket_spacing = 'true'
+let g:prettier#config#jsx_bracket_same_line = 'false'
+let g:prettier#config#parser = 'babylon'
 
 "バッファ全体にxmpfilterを実行
 nmap <silent> <C-x><C-p> mzggVG!xmpfilter -a<cr>'z

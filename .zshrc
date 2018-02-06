@@ -70,21 +70,8 @@ export PYTHONPATH="/usr/local/Cellar/opencv/2.4.5/lib/python2.7/site-packages:$P
 # rubyでrsruby用
 export R_HOME="/usr/local/bin/R"
 
-# nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-
 # 3秒以上かかった処理は詳細表示
 REPORTTIME=3
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /Users/minami/Documents/google-cloud-sdk/path.zsh.inc ]; then
-  source '/Users/minami/Documents/google-cloud-sdk/path.zsh.inc'
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f /Users/minami/Documents/google-cloud-sdk/completion.zsh.inc ]; then
-  source '/Users/minami/Documents/google-cloud-sdk/completion.zsh.inc'
-fi
 
 # for zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -235,6 +222,8 @@ set -o noclobber
 # erlangの起動
 alias erl='/usr/local/opt/erlang/lib/erlang/bin/erl*'
 
+alias git_push="git push origin $(git branch | grep '\*' | cut -d ' ' -f2)"
+
 # hubをgitのaliasに
 eval "$(hub alias -s)"
 
@@ -252,7 +241,8 @@ alias vlm='vim `last_migration`'
 CPLUS_INCLUDE_PATH='/usr/local/Cellar/boost/1.55.0/lib/'
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
+# TODO(south37) Remove after confirmation
+# export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
 # gemをrbenv用に自動でrehashが走る形に書き換え
@@ -330,22 +320,11 @@ alias fuck='eval $(thefuck $(fc -ln -1))'
 # https://docs.docker.com/machine/
 # eval "$(docker-machine env dev)"
 
-# tag生成
-# 参考: http://qiita.com/joker1007/items/9c114a37560d6a29fe81
-alias ruby-tag='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" --sort=yes -R .'
-
-
 ## docker-machine 起動
 # docker-machine start default
 # docker-machine env default
 
 eval "$(direnv hook zsh)"
-
-export ANDROID_HOME='/Users/minami/Library/Android/sdk/'
-
-# Add /usr/local/lib to include path for gcc
-# https://skatsuta.github.io/2015/10/03/fail-gem-install/
-export LIBRARY_PATH=/usr/local/lib:$LIBRARY_PATH
 
 # Add /depot_tools to PATh
 # https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up
@@ -354,9 +333,6 @@ export PATH=$PATH:$HOME/.go/src/chromium.googlesource.com/chromium/tools/depot_t
 # Use latest swift for trying Kitura
 # https://github.com/IBM-Swift/Kitura
 export PATH=$HOME/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
-
-# added by travis gem
-[ -f /Users/minami/.travis/travis.sh ] && source /Users/minami/.travis/travis.sh
 
 # Set for cuda
 # https://www.tensorflow.org/versions/r0.11/get_started/os_setup.html#optional-setup-gpu-for-mac
@@ -372,7 +348,7 @@ export PATH=$"HOME/.cargo/bin:$PATH"
 
 # Anaconda
 # http://qiita.com/y__sama/items/5b62d31cb7e6ed50f02c
-export PATH="$HOME/anaconda/bin:$PATH"
+# export PATH="$HOME/anaconda2/bin:$PATH"
 
 # llvm
 # To use the bundled libc++ please add the following LDFLAGS:
@@ -394,3 +370,18 @@ export PATH="$HOME/anaconda/bin:$PATH"
 #   mkdir -p /Users/minami/.local/lib/python3.6/site-packages
 #   echo 'import site; site.addsitedir("/usr/local/lib/python2.7/site-packages")' >> /Users/minami/.local/lib/python3.6/site-packages/homebrew.pth
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+# nodebrew
+export PATH="$HOME/.nodebrew/current/bin:$PATH"
+
+export PATH="$HOME/.nodenv/shims:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /Users/minami/.gcp/google-cloud-sdk/path.zsh.inc ]; then
+  source '/Users/minami/.gcp/google-cloud-sdk/path.zsh.inc'
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f /Users/minami/.gcp/google-cloud-sdk/completion.zsh.inc ]; then
+  source '/Users/minami/.gcp/google-cloud-sdk/completion.zsh.inc'
+fi
