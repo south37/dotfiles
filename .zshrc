@@ -224,9 +224,6 @@ alias erl='/usr/local/opt/erlang/lib/erlang/bin/erl*'
 
 alias git_push="git push origin $(git branch | grep '\*' | cut -d ' ' -f2)"
 
-# hubをgitのaliasに
-eval "$(hub alias -s)"
-
 # peco でgitlogからハッシュを取る
 alias glh="glg | peco | awk -F ' ' '{ print $NF }'"
 
