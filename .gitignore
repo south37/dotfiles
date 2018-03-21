@@ -1,6 +1,7 @@
 .vim/bundle/*
 .vim/.bundle/*
 *.swp
+*.pyc
 
 # Created by https://www.gitignore.io/api/vim
 

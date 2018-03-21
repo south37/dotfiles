@@ -46,8 +46,6 @@ export PATH="/usr/local/sbin:$PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="$PATH:/usr/local/share/npm/bin"
-export PATH="$(brew --prefix josegonzalez/php/php55)/bin:$PATH"
 
 # Bundler用
 export BUNDLER_EDITOR=vim
@@ -222,8 +220,6 @@ set -o noclobber
 # erlangの起動
 alias erl='/usr/local/opt/erlang/lib/erlang/bin/erl*'
 
-alias git_push="git push origin $(git branch | grep '\*' | cut -d ' ' -f2)"
-
 # peco でgitlogからハッシュを取る
 alias glh="glg | peco | awk -F ' ' '{ print $NF }'"
 
@@ -278,7 +274,6 @@ alias findall="find ./ -name $1"
 # git管理下のファイル全体から置換
 # 参考: http://pg-sugarless.hatenablog.jp/entry/20130409/1365510182
 # 参考2: http://stackoverflow.com/questions/4247068/sed-command-failing-on-mac-but-works-on-linux
-function grepall() { git ls-files | xargs grep -l $1 }
 function sedall()  { ag -l $1 $3 | xargs sed -Ei '' s/$1/$2/g }
 # rename
 function renameall() { git ls-files | grep $1 | while read LINE; do mv $LINE `echo $LINE | sed s/$1/$2/g`; done }
@@ -343,7 +338,7 @@ export PATH=$"HOME/.cargo/bin:$PATH"
 
 # Anaconda
 # http://qiita.com/y__sama/items/5b62d31cb7e6ed50f02c
-# export PATH="$HOME/anaconda2/bin:$PATH"
+export PATH="$HOME/anaconda2/bin:$PATH"
 
 # llvm
 # To use the bundled libc++ please add the following LDFLAGS:
@@ -380,3 +375,15 @@ fi
 if [ -f /Users/minami/.gcp/google-cloud-sdk/completion.zsh.inc ]; then
   source '/Users/minami/.gcp/google-cloud-sdk/completion.zsh.inc'
 fi
+
+# pyenv
+# cf. https://github.com/pyenv/pyenv#homebrew-on-mac-os-x
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+# virtualenv
+# cf. https://github.com/pyenv/pyenv-virtualenv
+eval "$(pyenv virtualenv-init -)"
+
+# phpunit
+export PATH="$HOME/.phpunit/bin:$PATH"
