@@ -1,15 +1,15 @@
 [core]
   editor = vim
-	excludesfile = /Users/minami/.gitignore
-	preloadindex = true
+  excludesfile = /Users/minami/.gitignore
+  preloadindex = true
 [user]
-	name = Nao Minami
-	email = south37777@gmail.com
+  name = Nao Minami
+  email = south37777@gmail.com
 [color]
-	ui = auto
-	diff = auto
-	status = auto
-	branch = auto
+  ui = auto
+  diff = auto
+  status = auto
+  branch = auto
 [alias]
   con = config --global -l
   s = status
@@ -31,13 +31,13 @@
 [ghq]
   root = ~/.go/src
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
 [http]
-	cookiefile = /Users/minami/.gitcookies
+  cookiefile = /Users/minami/.gitcookies
 [github]
-	user = south37
-	privatekey = /Users/minami/.ssh/id_rsa
+  user = south37
+  privatekey = /Users/minami/.ssh/id_rsa
