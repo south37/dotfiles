@@ -154,7 +154,7 @@ function get-branch-status {
 
 # プロンプト
 autoload -U colors; colors
-PROMPT='%F{blue}[%n@%m]%f %~ `branch-status-check`'$'\n$ ' # gitのbranch名を表示
+PROMPT='%F{blue}[%n@%m]%f %~ ($(branch-status-check)) ($(kubectl config current-context))'$'\n$ ' # gitのbranch名を表示
 # setopt transient_rprompt
 setopt prompt_subst #表示毎にPROMPTで設定されている文字列を評価する
 
@@ -359,7 +359,7 @@ export PATH="$HOME/anaconda2/bin:$PATH"
 #   echo /usr/local/opt/llvm/lib/python2.7/site-packages >> /usr/local/lib/python2.7/site-packages/llvm.pth
 #   mkdir -p /Users/minami/.local/lib/python3.6/site-packages
 #   echo 'import site; site.addsitedir("/usr/local/lib/python2.7/site-packages")' >> /Users/minami/.local/lib/python3.6/site-packages/homebrew.pth
-export PATH="/usr/local/opt/llvm/bin:$PATH"
+# export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # nodebrew
 export PATH="$HOME/.nodebrew/current/bin:$PATH"
@@ -387,3 +387,6 @@ eval "$(pyenv virtualenv-init -)"
 
 # phpunit
 export PATH="$HOME/.phpunit/bin:$PATH"
+
+# istioctl
+export PATH="$PATH:$GOPATH/src/github.com/south37/istio-0.7.1/bin"
