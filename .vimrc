@@ -43,9 +43,13 @@ nnoremap k gk
 au BufNewFile,BufRead Gemfile setf ruby
 " jbuilderをruby modeで開く
 au BufNewFile,BufRead jbuilder setf ruby
+" Treat .rbi as rb
+autocmd BufRead,BufNewFile *.rbi setfiletype ruby
 
 " rbファイルを開いた時は、デフォルトでマジックコメント追加
 "autocmd BufNewFile *.rb 0r ~/.vim/templates/rb.tpl
+
+
 
 " 末尾の空白スペースを消す
 autocmd BufWritePre * :%s/\s\+$//e
@@ -200,6 +204,9 @@ NeoBundle 'dag/vim2hs'
 
 " elixir
 NeoBundle 'elixir-lang/vim-elixir'
+
+" nginx
+NeoBundle 'chr4/nginx.vim'
 
 " vim-rubyを導入
 NeoBundle 'vim-ruby/vim-ruby'

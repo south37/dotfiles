@@ -10,3 +10,4 @@ augroup filetypedetect
     autocmd! BufNewFile,BufRead *.go setfiletype go
     autocmd! BufNewFile,BufRead *.rb setfiletype ruby
 augroup END
+au BufNewFile,BufRead *.gb    setf goby

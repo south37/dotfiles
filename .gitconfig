@@ -2,6 +2,7 @@
   editor = vim
   excludesfile = /Users/minami/.gitignore
   preloadindex = true
+  precomposeUnicode = true
 [user]
   name = Nao Minami
   email = south37777@gmail.com

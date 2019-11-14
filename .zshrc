@@ -154,7 +154,7 @@ function get-branch-status {
 
 # プロンプト
 autoload -U colors; colors
-PROMPT='%F{blue}[%n@%m]%f %~ ($(branch-status-check)) ($(kubectl config current-context))'$'\n$ ' # gitのbranch名を表示
+PROMPT='%F{blue}[$(date "+%Y/%m/%d %H:%M:%S")]%f %~ ($(branch-status-check)) ($(kubectl config current-context))'$'\n$ ' # gitのbranch名を表示
 # setopt transient_rprompt
 setopt prompt_subst #表示毎にPROMPTで設定されている文字列を評価する
 
@@ -198,7 +198,6 @@ alias cdw='cd ~/Dropbox/master-thesis'
 alias cdi='cd ~/Documents/programs/intern/wantedly/projects/app-ios'
 
 # wantedly sap 用
-alias kube='envchain aws kube'
 alias valec='envchain aws valec'
 
 # coffee script
@@ -206,6 +205,7 @@ alias cof='coffee'
 
 # Compile by c++11
 alias g++11='g++ -std=c++11'
+alias g++14='g++ -std=c++14'
 
 # download resource
 all_download() {
@@ -390,3 +390,21 @@ export PATH="$HOME/.phpunit/bin:$PATH"
 
 # istioctl
 export PATH="$PATH:$GOPATH/src/github.com/south37/istio-0.7.1/bin"
+
+# goby
+export GOBY_ROOT="$GOPATH/src/github.com/goby-lang/goby"
+
+# For kube
+export PATH="$HOME/.wantedly/bin:$PATH"
+
+# For kubernetes
+alias ks="kube sandbox"
+alias kp="kube prod"
+alias kq="kube qa"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/minami/.nodebrew/node/v8.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/minami/.nodebrew/node/v8.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/minami/.nodebrew/node/v8.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/minami/.nodebrew/node/v8.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
