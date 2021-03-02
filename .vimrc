@@ -34,11 +34,6 @@ set backspace=indent,eol,start
 nnoremap j gj
 nnoremap k gk
 
-" 9/13 廃止. ISUCON に備えて
-" " USキーボードでは;と:が逆
-" nnoremap ; :
-" nnoremap : ;
-
 " Gemfileをruby modeで開く
 au BufNewFile,BufRead Gemfile setf ruby
 " jbuilderをruby modeで開く
@@ -250,16 +245,14 @@ NeoBundle 'jceb/vim-hier'
 " 参考: http://yuku-tech.hatenablog.com/entry/20110427/1303868482
 NeoBundle 'tpope/vim-fugitive'
 
-" Go のvim用便利plugin
-" :Fmt とか :Import とか
-" 参考: http://qiita.com/methane/items/4905f40e4772afec3e60
-NeoBundle 'fait/vim-go'
-
 " Swift
 NeoBundle 'toyamarinyon/vim-swift'
 
 " llvm
 NeoBundle 'rhysd/vim-llvm'
+
+" go
+NeoBundle 'fatih/vim-go'
 
 " NeoBundle設定終了
 " 参考: https://github.com/Shougo/neobundle.vim
@@ -273,11 +266,6 @@ filetype plugin indent on
 NeoBundleCheck
 
 autocmd BufNewFile,BufRead *.twig set syntax=htmldjango
-
-" js, coffee のtemplateをhtmlとしてhighlight
-" https://github.com/Quramy/vim-js-pretty-template
-autocmd FileType javascript JsPreTmpl html
-autocmd FileType coffee JsPreTmpl html
 
 " js prettier
 let g:prettier#autoformat = 0
@@ -401,6 +389,7 @@ nnoremap <F6> :<C-u>source $MYVIMRC<CR>
 set rtp^=${GOROOT}/misc/vim
 set rtp^=${GOPATH}/src/github.com/nsf/gocode/vim
 au BufNewFile,BufRead *.go set sw=4 noexpandtab ts=4
+au BufWritePre *.go GoFmt
 
 " Neocomplcache用設定
 " https://github.com/Shougo/neocomplcache.vim
