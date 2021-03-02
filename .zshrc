@@ -44,9 +44,6 @@ setopt IGNOREEOF
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 # Bundler用
 export BUNDLER_EDITOR=vim
 
@@ -154,9 +151,16 @@ function get-branch-status {
 
 # プロンプト
 autoload -U colors; colors
-PROMPT='%F{blue}[$(date "+%Y/%m/%d %H:%M:%S")]%f %~ ($(branch-status-check)) ($(kubectl config current-context))'$'\n$ ' # gitのbranch名を表示
+PROMPT='%F{blue}[$(date "+%Y/%m/%d %H:%M:%S")]%f %~ ($(branch-status-check))'$'\n$ ' # gitのbranch名を表示
+if (( ${+KUBE_FORK_TARGET_ENV} )); then
+  PROMPT="[fork ${KUBE_FORK_TARGET_ENV}] ${PROMPT}"
+fi
 # setopt transient_rprompt
 setopt prompt_subst #表示毎にPROMPTで設定されている文字列を評価する
+
+# beep sound
+# cf. https://blog.vghaisas.com/zsh-beep-sound/
+unsetopt BEEP
 
 # ctagsをhomebrewで入れた物を使用
 alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
@@ -198,7 +202,7 @@ alias cdw='cd ~/Dropbox/master-thesis'
 alias cdi='cd ~/Documents/programs/intern/wantedly/projects/app-ios'
 
 # wantedly sap 用
-alias valec='envchain aws valec'
+alias valec='AWS_REGION=ap-northeast-1 valec'
 
 # coffee script
 alias cof='coffee'
@@ -233,9 +237,11 @@ alias vlm='vim `last_migration`'
 # gccでboost読み込み
 export CPLUS_INCLUDE_PATH="/usr/local/Cellar/boost/1.55.0/lib/:$CPLUS_INCLUDE_PATH"
 
+# Work Around for avoding fork error
+# cf. https://github.com/puma/puma/issues/1421#issuecomment-332668165
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 # rbenv
-# TODO(south37) Remove after confirmation
-# export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
 # gemをrbenv用に自動でrehashが走る形に書き換え
@@ -361,35 +367,8 @@ export PATH="$HOME/anaconda2/bin:$PATH"
 #   echo 'import site; site.addsitedir("/usr/local/lib/python2.7/site-packages")' >> /Users/minami/.local/lib/python3.6/site-packages/homebrew.pth
 # export PATH="/usr/local/opt/llvm/bin:$PATH"
 
-# nodebrew
-export PATH="$HOME/.nodebrew/current/bin:$PATH"
-
-export PATH="$HOME/.nodenv/shims:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /Users/minami/.gcp/google-cloud-sdk/path.zsh.inc ]; then
-  source '/Users/minami/.gcp/google-cloud-sdk/path.zsh.inc'
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f /Users/minami/.gcp/google-cloud-sdk/completion.zsh.inc ]; then
-  source '/Users/minami/.gcp/google-cloud-sdk/completion.zsh.inc'
-fi
-
-# pyenv
-# cf. https://github.com/pyenv/pyenv#homebrew-on-mac-os-x
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-# virtualenv
-# cf. https://github.com/pyenv/pyenv-virtualenv
-eval "$(pyenv virtualenv-init -)"
-
 # phpunit
 export PATH="$HOME/.phpunit/bin:$PATH"
-
-# istioctl
-export PATH="$PATH:$GOPATH/src/github.com/south37/istio-0.7.1/bin"
 
 # goby
 export GOBY_ROOT="$GOPATH/src/github.com/goby-lang/goby"
@@ -397,14 +376,47 @@ export GOBY_ROOT="$GOPATH/src/github.com/goby-lang/goby"
 # For kube
 export PATH="$HOME/.wantedly/bin:$PATH"
 
-# For kubernetes
-alias ks="kube sandbox"
-alias kp="kube prod"
-alias kq="kube qa"
+# For kubebuilder
+export PATH="$PATH:/usr/local/kubebuilder/bin"
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/minami/.nodebrew/node/v8.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/minami/.nodebrew/node/v8.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/minami/.nodebrew/node/v8.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/minami/.nodebrew/node/v8.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+# To avoid error message of vim
+# cf. https://discourse.brew.sh/t/failed-to-set-locale-category-lc-numeric-to-en-ru/5092/13
+export LC_ALL=en_US.UTF-8
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/minami/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/minami/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/minami/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/minami/google-cloud-sdk/completion.zsh.inc'; fi
+
+# added by travis gem
+[ -f /Users/minami/.travis/travis.sh ] && source /Users/minami/.travis/travis.sh
+
+# nodenv
+eval "$(nodenv init -)"
+
+# Go mod
+export GO111MODULE=on
+
+# direnv https://direnv.net/docs/installation.html
+eval "$(direnv hook zsh)"
+
+# pyenv
+eval "$(pyenv init -)"
+
+# poetry
+export PATH=$HOME/.poetry/bin:$PATH
+
+# Use OpenJDK installed with Homebrew
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+# export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+
+# kopsenv
+export PATH="$HOME/.kopsenv/bin:$PATH"
+
+# for Wantedly
+# cf. https://github.com/wantedly/apis-reflection-server
+export REFLECTION_SERVER="apis-reflection-server.apis-reflection-server:80"
+
+# https://github.com/kubernetes-sigs/krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
