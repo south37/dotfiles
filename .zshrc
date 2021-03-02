@@ -204,9 +204,6 @@ alias cdi='cd ~/Documents/programs/intern/wantedly/projects/app-ios'
 # wantedly sap 用
 alias valec='AWS_REGION=ap-northeast-1 valec'
 
-# coffee script
-alias cof='coffee'
-
 # Compile by c++11
 alias g++11='g++ -std=c++11'
 alias g++14='g++ -std=c++14'
@@ -233,9 +230,6 @@ alias vlm='vim `last_migration`'
 
 # agの結果をpagerで表示
 # alias ag='ag --pager="less -R"'
-
-# gccでboost読み込み
-export CPLUS_INCLUDE_PATH="/usr/local/Cellar/boost/1.55.0/lib/:$CPLUS_INCLUDE_PATH"
 
 # Work Around for avoding fork error
 # cf. https://github.com/puma/puma/issues/1421#issuecomment-332668165
@@ -310,18 +304,6 @@ alias altool='/Applications/Xcode.app/Contents/Applications/Application\ Loader.
 #https://github.com/nvbn/thefuck
 alias fuck='eval $(thefuck $(fc -ln -1))'
 
-# docker用
-# http://stackoverflow.com/questions/27528337/am-i-trying-to-connect-to-a-tls-enabled-daemon-without-tls
-# $(boot2docker shellinit 2> /dev/null)
-
-# for docker-machine
-# https://docs.docker.com/machine/
-# eval "$(docker-machine env dev)"
-
-## docker-machine 起動
-# docker-machine start default
-# docker-machine env default
-
 # Add /depot_tools to PATh
 # https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up
 export PATH=$PATH:$HOME/.go/src/chromium.googlesource.com/chromium/tools/depot_tools
@@ -345,27 +327,6 @@ export PATH=$"HOME/.cargo/bin:$PATH"
 # Anaconda
 # http://qiita.com/y__sama/items/5b62d31cb7e6ed50f02c
 export PATH="$HOME/anaconda2/bin:$PATH"
-
-# llvm
-# To use the bundled libc++ please add the following LDFLAGS:
-#   LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
-#
-# This formula is keg-only, which means it was not symlinked into /usr/local,
-# because macOS already provides this software and installing another version in
-# parallel can cause all kinds of trouble.
-#
-# If you need to have this software first in your PATH run:
-#   echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> ~/.zshrc
-#
-# For compilers to find this software you may need to set:
-#     LDFLAGS:  -L/usr/local/opt/llvm/lib
-#     CPPFLAGS: -I/usr/local/opt/llvm/include
-#
-# If you need Python to find bindings for this keg-only formula, run:
-#   echo /usr/local/opt/llvm/lib/python2.7/site-packages >> /usr/local/lib/python2.7/site-packages/llvm.pth
-#   mkdir -p /Users/minami/.local/lib/python3.6/site-packages
-#   echo 'import site; site.addsitedir("/usr/local/lib/python2.7/site-packages")' >> /Users/minami/.local/lib/python3.6/site-packages/homebrew.pth
-# export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # phpunit
 export PATH="$HOME/.phpunit/bin:$PATH"
