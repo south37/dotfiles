@@ -381,3 +381,5 @@ export REFLECTION_SERVER="apis-reflection-server.apis-reflection-server:80"
 
 # https://github.com/kubernetes-sigs/krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+export PATH="$HOME/.poetry/bin:$PATH"
