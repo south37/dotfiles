@@ -214,9 +214,6 @@ NeoBundle 'rking/ag.vim'
 " 参考: http://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca
 NeoBundle 'kana/vim-submode'
 
-" uniteを導入
-NeoBundle 'Shougo/unite.vim'
-
 " switch.vimを導入
 " 参考: http://qiita.com/alpaca_taichou/items/ab2ad83ddbaf2f6ce7fb
 NeoBundle 'AndrewRadev/switch.vim'
@@ -423,36 +420,6 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType go setlocal omnifunc=gocomplete#Complete
-
-" vimのカレントディレクトリを開いてるファイルのディレクトリにする
-" 参考: http://www15.ocn.ne.jp/~tusr/vim/vim_text2.html#mozTocId567011
-" au   BufEnter *   execute ":lcd " . expand("%:p:h")
-" uniteを導入したのでコメントアウト 15/03/07
-
-" uniteの設定
-" 参考: http://kakipy.com/articles/5
-" let g:unite_enable_start_insert = 1
-" let g:unite_enable_split_vertically = 0
-" let g:unite_winwidth = 40
-" nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file file/new<CR>
-" nnoremap <silent> ,um :<C-u>Unite  file_mru <CR>
-" nnoremap <silent> ,urc :<C-u>Unite file_rec/async:app/controllers/ <CR>
-" nnoremap <silent> ,urfc :<C-u>Unite file file/new -input=app/controllers/ <CR>
-" nnoremap <silent> ,urm :<C-u>Unite file_rec/async:app/models/ <CR>
-" nnoremap <silent> ,urfm :<C-u>Unite file file/new -input=app/models/ <CR>
-" nnoremap <silent> ,urv :<C-u>Unite file_rec/async:app/views/ <CR>
-" nnoremap <silent> ,urfv :<C-u>Unite file file/new -input=app/views/ <CR>
-" nnoremap <silent> ,urs :<C-u>Unite file_rec/async:app/assets/stylesheets/ <CR>
-" nnoremap <silent> ,urfs :<C-u>Unite file file/new -input=app/assets/stylesheets/ <CR>
-" nnoremap <silent> ,urj :<C-u>Unite file_rec/async:app/assets/javascripts/ <CR>
-" nnoremap <silent> ,urfj :<C-u>Unite file file/new -input=app/assets/javascripts/ <CR>
-" nnoremap <silent> ,uro :<C-u>Unite file_rec/async:config/ <CR>
-" nnoremap <silent> ,urfo :<C-u>Unite file file/new -input=config/ <CR>
-" nnoremap <silent> ,url :<C-u>Unite file_rec/async:lib/ <CR>
-" nnoremap <silent> ,urfl :<C-u>Unite file file/new -input=lib/ <CR>
-" nnoremap <silent> ,urr :<C-u>Unite file_rec/async:spec/ <CR>
-" nnoremap <silent> ,urfr :<C-u>Unite file file/new -input=spec/ <CR>
-" いったんコメントアウト 15/03/07
 
 " switch.vim
 " 参考の設定: https://gist.github.com/alpaca-tc/6696152
