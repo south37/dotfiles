@@ -199,10 +199,6 @@ alias cdp='cd ~/Documents/programs'
 alias cdj='cd app/assets/javascripts'
 alias cdd='cd ~/Dropbox/docs'
 alias cdw='cd ~/Dropbox/master-thesis'
-alias cdi='cd ~/Documents/programs/intern/wantedly/projects/app-ios'
-
-# wantedly sap 用
-alias valec='AWS_REGION=ap-northeast-1 valec'
 
 # Compile by c++11
 alias g++11='g++ -std=c++11'
@@ -334,9 +330,6 @@ export PATH="$HOME/.phpunit/bin:$PATH"
 # goby
 export GOBY_ROOT="$GOPATH/src/github.com/goby-lang/goby"
 
-# For kube
-export PATH="$HOME/.wantedly/bin:$PATH"
-
 # For kubebuilder
 export PATH="$PATH:/usr/local/kubebuilder/bin"
 
@@ -374,10 +367,6 @@ export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
 # kopsenv
 export PATH="$HOME/.kopsenv/bin:$PATH"
-
-# for Wantedly
-# cf. https://github.com/wantedly/apis-reflection-server
-export REFLECTION_SERVER="apis-reflection-server.apis-reflection-server:80"
 
 # https://github.com/kubernetes-sigs/krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
