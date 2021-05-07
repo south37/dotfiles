@@ -139,10 +139,6 @@ NeoBundle 'Shougo/vimshell'
 " Neocomplcache
 NeoBundle 'Shougo/neocomplcache'
 
-" neosnippet
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-
 " vim-endwise
 NeoBundle 'tpope/vim-endwise'
 
@@ -624,8 +620,12 @@ nmap cc <Plug>(ToggleColorColumn)
 " cpp
 au BufRead,BufNewFile *.cpp set filetype=cpp
 
-"jsx
+" jsx
 au BufRead,BufNewFile *.jsx set filetype=javascript
+
+" gradle
+" cf. https://github.com/vim/vim/issues/7280#issuecomment-725510148
+au BufRead,BufNewFile *.gradle set re=0
 
 " llvm
 " https://github.com/Superbil/llvm.vim
