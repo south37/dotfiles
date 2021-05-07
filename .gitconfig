@@ -11,10 +11,6 @@
   diff = auto
   status = auto
   branch = auto
-[pager]
-  log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
-  show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
-  diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
 [alias]
   con = config --global -l
   s = status
@@ -48,11 +44,6 @@
   privatekey = /Users/minami/.ssh/id_rsa
 [url "git@github.com:"]
   insteadOf = https://github.com/
-[color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
 [url "https://github.com/"]
   insteadOf = git@github.com:
 [pull]
