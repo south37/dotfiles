@@ -371,4 +371,8 @@ export PATH="$HOME/.kopsenv/bin:$PATH"
 # https://github.com/kubernetes-sigs/krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+# poetry
 export PATH="$HOME/.poetry/bin:$PATH"
+
+# openjdk for Apple Sillicon Mac
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
