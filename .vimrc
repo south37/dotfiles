@@ -142,15 +142,6 @@ NeoBundle 'Shougo/neocomplcache'
 " vim-endwise
 NeoBundle 'tpope/vim-endwise'
 
-" NERD-tree
-NeoBundle 'The-NERD-tree'
-" NERD-tree(ctrlpを入れたので使わない)
-"nmap <silent> <C-e>      :NERDTreeToggle<CR>
-"vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
-"omap <silent> <C-e>      :NERDTreeToggle<CR>
-"imap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
-"cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
-
 " taglist
 " http://d.hatena.ne.jp/mrgoofy33/20091103/1257199860
 NeoBundle 'vim-scripts/taglist.vim'
