@@ -75,21 +75,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Copy File Path/Name
-NeoBundle 'vim-scripts/copypath.vim'
-command! CP :CopyPath
-
-" quickrun
-NeoBundle 'thinca/vim-quickrun'
-
-NeoBundle 'thinca/vim-qfreplace'
-
-NeoBundle 'kana/thinca-vim-qfreplace'
-
-" multiplesearch
-" 参考: http://tech.thekyo.jp/vim%E3%81%AE%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B36%E3%80%8Cmultiplesearch-vim%E3%80%8D/787/
-NeoBundle 'vim-scripts/MultipleSearch'
-
 " ctrlp(ファイル検索)
 NeoBundle 'kien/ctrlp.vim'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
