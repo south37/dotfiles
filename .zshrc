@@ -47,23 +47,8 @@ export PATH="/usr/local/sbin:$PATH"
 # Bundler用
 export BUNDLER_EDITOR=vim
 
-# swift用
-export PATH="/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:$PATH"
-
-# sbt用SBT_OPTS
-export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=384M"
-
-# PostgresをPATHに追加
-export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
-
 # pkg-config用PATH
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/usr/lib/pkgconfig:/usr/X11/lib/pkgconfig"
-
-# pythonでopenCV使う
-export PYTHONPATH="/usr/local/Cellar/opencv/2.4.5/lib/python2.7/site-packages:$PYTHONPATH"
-
-# rubyでrsruby用
-export R_HOME="/usr/local/bin/R"
 
 # 3秒以上かかった処理は詳細表示
 REPORTTIME=3
@@ -231,24 +216,6 @@ alias vlm='vim `last_migration`'
 # cf. https://github.com/puma/puma/issues/1421#issuecomment-332668165
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-# rbenv
-eval "$(rbenv init - zsh)"
-
-# gemをrbenv用に自動でrehashが走る形に書き換え
-function gem(){
-    $HOME/.rbenv/shims/gem $*
-    if [ "$1" = "install" ] || [ "$1" = "i" ] || [ "$1" = "uninstall" ] || [ "$1" = "uni" ]
-    then
-        rbenv rehash
-        rehash
-    fi
-}
-
-# chef-dkをPATHに含める。
-# rbenvのPATHよりも前。
-# 参考: https://github.com/berkshelf/vagrant-berkshelf/issues/212
-export PATH="$HOME/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:$PATH"
-
 # sheet用設定
 compdef _my_sheets sheet
 function _my_sheets {
@@ -283,6 +250,9 @@ export GOPATH=$HOME/.go
 export GOROOT=/usr/local/go
 export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
+# Go mod
+export GO111MODULE=on
+
 # 特定のcommitが含まれる pull req を探す
 function find-pr() {
   local parent=$2||'master'
@@ -300,39 +270,6 @@ alias altool='/Applications/Xcode.app/Contents/Applications/Application\ Loader.
 #https://github.com/nvbn/thefuck
 alias fuck='eval $(thefuck $(fc -ln -1))'
 
-# Add /depot_tools to PATh
-# https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up
-export PATH=$PATH:$HOME/.go/src/chromium.googlesource.com/chromium/tools/depot_tools
-
-# Use latest swift for trying Kitura
-# https://github.com/IBM-Swift/Kitura
-export PATH=$HOME/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
-
-# Set for cuda
-# https://www.tensorflow.org/versions/r0.11/get_started/os_setup.html#optional-setup-gpu-for-mac
-export CUDA_HOME=/usr/local/cuda
-export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
-export PATH="$CUDA_HOME/bin:$PATH"
-
-# swift
-export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:"${PATH}"
-
-# Rust
-export PATH=$"HOME/.cargo/bin:$PATH"
-
-# Anaconda
-# http://qiita.com/y__sama/items/5b62d31cb7e6ed50f02c
-export PATH="$HOME/anaconda2/bin:$PATH"
-
-# phpunit
-export PATH="$HOME/.phpunit/bin:$PATH"
-
-# goby
-export GOBY_ROOT="$GOPATH/src/github.com/goby-lang/goby"
-
-# For kubebuilder
-export PATH="$PATH:/usr/local/kubebuilder/bin"
-
 # To avoid error message of vim
 # cf. https://discourse.brew.sh/t/failed-to-set-locale-category-lc-numeric-to-en-ru/5092/13
 export LC_ALL=en_US.UTF-8
@@ -346,33 +283,5 @@ if [ -f '/Users/minami/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mi
 # added by travis gem
 [ -f /Users/minami/.travis/travis.sh ] && source /Users/minami/.travis/travis.sh
 
-# nodenv
-eval "$(nodenv init -)"
-
-# Go mod
-export GO111MODULE=on
-
-# direnv https://direnv.net/docs/installation.html
-eval "$(direnv hook zsh)"
-
-# pyenv
-eval "$(pyenv init -)"
-
-# poetry
-export PATH=$HOME/.poetry/bin:$PATH
-
-# Use OpenJDK installed with Homebrew
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-# export CPPFLAGS="-I/usr/local/opt/openjdk/include"
-
-# kopsenv
-export PATH="$HOME/.kopsenv/bin:$PATH"
-
-# https://github.com/kubernetes-sigs/krew
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
 # poetry
 export PATH="$HOME/.poetry/bin:$PATH"
-
-# openjdk for Apple Sillicon Mac
-export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
