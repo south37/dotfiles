@@ -124,9 +124,6 @@ NeoBundle 'Shougo/vimshell'
 " Neocomplcache
 NeoBundle 'Shougo/neocomplcache'
 
-" vim-endwise
-NeoBundle 'tpope/vim-endwise'
-
 " taglist
 " http://d.hatena.ne.jp/mrgoofy33/20091103/1257199860
 NeoBundle 'vim-scripts/taglist.vim'
@@ -136,89 +133,14 @@ let Tlist_Ctags_Cmd = '/usr/local/bin/ctags --append=no'
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
 
-" 引用符を付ける
-NeoBundle 'surround.vim'
-
 " HTMLを書く
 NeoBundle 'mattn/emmet-vim'
-
-" js
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'prettier/vim-prettier'
-
-" template in js and coffee
-NeoBundle 'Quramy/vim-js-pretty-template'
-
-" json
-NeoBundle 'leshill/vim-json'
-
-" scala
-NeoBundle 'derekwyatt/vim-scala'
-
-" haml
-NeoBundle 'tpope/vim-haml'
-
-" c++
-NeoBundle 'octol/vim-cpp-enhanced-highlight'
 
 " rust
 NeoBundle 'rust-lang/rust.vim'
 
-" haskell
-NeoBundle 'eagletmt/neco-ghc'
-NeoBundle 'dag/vim2hs'
-
 " elixir
 NeoBundle 'elixir-lang/vim-elixir'
-
-" nginx
-NeoBundle 'chr4/nginx.vim'
-
-" vim-rubyを導入
-NeoBundle 'vim-ruby/vim-ruby'
-
-" agコマンドをvimから使えるようにする
-" 参考: http://blog.glidenote.com/blog/2013/02/28/the-silver-searcher-better-than-ack/
-NeoBundle 'rking/ag.vim'
-
-" window分割&移動キーバインド
-" 参考: http://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca
-NeoBundle 'kana/vim-submode'
-
-" switch.vimを導入
-" 参考: http://qiita.com/alpaca_taichou/items/ab2ad83ddbaf2f6ce7fb
-NeoBundle 'AndrewRadev/switch.vim'
-
-" switch.vimを導入
-" 参考: https://github.com/thoughtbot/vim-rspec
-" NeoBundle 'thoughtbot/vim-rspec'
-
-" vim-rspec.vimを導入
-" 参考: http://kazuph.hateblo.jp/entry/2012/11/28/233413
-NeoBundle 'skwp/vim-rspec'
-
-" API Blueprint
-NeoBundle 'kylef/apiblueprint.vim'
-
-" TypeScript環境
-NeoBundle 'leafgarland/typescript-vim'
-
-" パス名をコピー
-NeoBundle 'vim-scripts/copypath.vim'
-
-" QuickFixをハイライト
-NeoBundle 'jceb/vim-hier'
-
-" Git コマンドを使う
-" 参考: http://yuku-tech.hatenablog.com/entry/20110427/1303868482
-NeoBundle 'tpope/vim-fugitive'
-
-" Swift
-NeoBundle 'toyamarinyon/vim-swift'
-
-" llvm
-NeoBundle 'rhysd/vim-llvm'
 
 " go
 NeoBundle 'fatih/vim-go'
@@ -287,17 +209,6 @@ nnoremap sH <C-w>H
 nnoremap sL <C-w>L
 nnoremap sJ <C-w>J
 nnoremap sK <C-w>K
-
-" sindowサイズ変更
-nnoremap s= <C-w>=
-call submode#enter_with('bufmove', 'n', '', 's.', '<C-w>>')
-call submode#enter_with('bufmove', 'n', '', 's,', '<C-w><')
-call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
-call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
-call submode#map('bufmove', 'n', '', '.', '<C-w>>')
-call submode#map('bufmove', 'n', '', ',', '<C-w><')
-call submode#map('bufmove', 'n', '', '+', '<C-w>+')
-call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 
 " tab間の移動を簡単に
 nnoremap <C-n> :tabprevious<Return>
