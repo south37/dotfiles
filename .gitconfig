@@ -41,10 +41,6 @@
   cookiefile = /Users/minami/.gitcookies
 [github]
   user = south37
-  privatekey = /Users/minami/.ssh/id_rsa
-[url "git@github.com:"]
-  insteadOf = https://github.com/
-[url "https://github.com/"]
-  insteadOf = git@github.com:
+  privatekey = /Users/minami/.ssh/id_ed25519_github
 [pull]
   rebase = false
